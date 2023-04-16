@@ -1,10 +1,12 @@
 # ZippyStack
+
 This repository is for my journey towards learning Python and other languages along the way
 
-# 14April2023: 
-Python took the backseat. In this repository, i will be building an App using Flutter and Dart.
+## 14April2023
 
-Reviewed Objective
+Python took the backseat. In this repository,i will be building a multi-platform App using Flutter and Dart.
+
+Project/App Objective
 
 The App will help profile Investment Clubs' risk appetites based on certain questions.
 A RoboAdvisor will then help the club(s) in allocating or apportioning the funds into the right investment vehicles
