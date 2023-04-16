@@ -8,16 +8,19 @@ Python took the backseat. In this repository,i will be building a multi-platform
 
 ### Project/App Objective
 
-1. The App will help profile Investment Clubs' risk appetites based on certain questions.
-2. A RoboAdvisor will then help the club(s) in allocating or apportioning the funds into the right investment vehicles
-3. The App should allow for
-   1. Signing Up as an App user.
-   2. Signing In for existing users.
-      1. The signing in should allow for face or finger print signin OR
-      2. UserName and Password signIn with OTP capabilities. - 2 Step Authentication
-4. Risk Profiling
-5. Investment Allocation
-6. Debit Order setup - DebiCheck???
-7. Provide for Club Constitution templates
-8. Will templates
-9. Secure Storage Facility
+1. The App will help profile an Investment Clubs' risk appetite based on answers to certain pre-set multiple choice questions.
+2. A RoboAdvisor will allocate or apportion the Club's funds into the right investment vehicles.
+3. Club representative will review,accept or decline fund allocation
+4. The App should allow for
+   1. Signing-Up as an App user.
+   2. Signing-In for existing users.
+      1. The signing-In should allow for face or fingerprint sign-In OR
+      2. Username and Password sign-In with OTP capabilities. - Two-step Authentication
+5. Risk Profiling
+6. Investment Allocation
+7. Debit Order setup - i.e DebiCheck etc
+8. Provide for Club Constitution templates
+9. Will templates
+10. Secure Storage Facility
+11. Communication capability - Messaging and notifications via Whatsapp.
+12. App to provide Financial Reports - downloadable, email-able, whatsapp-able
