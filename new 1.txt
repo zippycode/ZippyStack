@@ -1,0 +1,20 @@
+/*Finacial Instruments*/
+gbm.fin_instr_in_comp_instr_at
+gbm.composite_fin_instrument
+gbm.base_fin_instrument
+gbm.long_term_debt_instrument
+gbm.debt_fin_instrument
+gbm.investment_book 
+gbm.asset_account_allocation
+
+/*Chart of Accounts*/
+gbm.base_account_descriptor
+gbm.base_to_leaf_account_mapping
+gbm.nonbase_account_descriptor
+
+/*Deal Classification*/
+gbm.deal_class
+
+/*Business Unit and Business Unit Rollup*/
+gbm.bus_unit
+gbm.bus_unit_rollup

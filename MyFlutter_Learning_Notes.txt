@@ -1,0 +1,331 @@
+Functions are just instructions or "Code on Demand"
+
+In AppDev, it gives an App instructions . It gets an App, up and running.
+
+- runApp() is a function.
+- If there is a squeegly red line on code, it means there is an error.
+- A funtion body must be provided. If its a pre-written function from existing Libraries and Frameworks then you must import the package in which the function body is defined. i.e Add Flutter Library in pubspec.yaml
+- Functions in Dart Cannot be run bare on Main.Dart. It must be wrapped within another custom function (MAIN). It must be main, MAIN is a must for Flutter Dev
+
+Example of the custom function is MAIN
+
+void main() /*Defining a function .void is a return type*/
+{
+	runApp(); /*runApp is a function from Flutter. It is open source so this can be seen on Flutter Docs. To be able to run it. You must import materialApp*/
+}
+; 
+
+MAIN function is the main entry point on a dart file. It DOES NOT need to be called. Its executed when the Run command is executed.	
+
+
+void main() /*Defining a function .void is a return type*/
+{
+	runApp(); /*runApp is a function from Flutter. It is open source so this can be seen on Flutter Docs. To be able to run it. You must import materialApp*/
+}
+; 
+
+Note that the above runApp function is incomplete as there are no arguments or parameters passed to it.
+You must pass a parameter, in this case, a widget or a widget Tree.
+
+NB: You can search for a widget catalog on Flutter Docs
+
+Example: MaterialApp --- Widgets are named using CapInit - or a Sentence case. A widget lookes like a function MaterialApp().
+
+A widget is actually a CLASS OR a CONSTRUCTOR function of a class.
+
+INSTRUCTIONS TO BUILD UI ON SCREEN:
+
+These instructions are given by RunApp that calls Widget classes. Like runApp(MaterialApp());
+
+NOTE:
+
+There are TWO types of PARAMETERS
+	1. Positional parameters. - Arguments are called as per position defined in the function's parameter definitions.
+	2. Named parameters - These parameters are closed in curly brackets and the arguments can be called in any order , First parameter can be the second argument in a function call and vis-versa
+	
+	Example - named parameters.
+	
+	MaterialApp({home:})
+
+
+OPTIONAL vs MANDATORY PARAMETERS:
+
+Positional arguments are naturally required/MANDATORY, however, you can make them optional by wrapping them in square brackets.
+
+Optional positional:
+
+void add(a, [b]) { // b is optional
+void add(a, [b = 5]) { // b is optional, 5 will be used as a default value
+  print(a + b);
+}
+add(10); // b would still be 5 because it's not overwritten
+add(10, 6); // here, b would be 6
+
+NAMED ARGUMENTS(Check Curly brackets) - OPTIONAL VS NAMED ARGUMENTS (MANDATORY using keyword "required").
+
+void add({a, b = 5}) { // b has a default value of 5
+  print(a + b); 
+}  
+ 
+add(b: 10); // for b, 10 would be used instead of 5; a has no default value and would be "null" here => a special value type you'll learn about throughout this course
+
+
+void OptionalOrMandatory(a,[b]);
+
+
+-----TO BE DELETED
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+You can also make named parameters required by using the built-in required keyword:
+
+void add({required a, required b}) { // a & b are no longer optional
+  print(a + b); 
+}  ;
+
+
+NOTE:
+
+You can mix and match positional vs named ARGUMENTS
+
+
+"CONST"
+--------------------------
+
+Note that running this: WAS VERY SLOW BEFORE ADDING THE "CONST" keyword before the Widget parameter.
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MaterialApp(home: Text('Hello World')));
+}
+;
+
+NB: "CONST" IS USED BY DART TO OPTIMIZE RUNTIME PERFORMANCE OF AN APP. --- STORES EVERYTHING IN MEMORY AND REUSES INFO THAT'S ALREADY IN MEMORY INSTEAD OF DOING MORE I/O EVERYTIME. THIS IS CACHING????
+
+
+
+TYPES:
+
+Dart is a TYPE-SAFE language.
+
+
+STYLING:
+
+We can use a background color to give our App background a nice color, however, you can not pick a nice color GRADIENT on a simple background object.
+You would rather call another widget to wrap the content of the scaffold. The chose widget should allow for picking up or choosing of color gradients.
+
+A good example of widget that allows for proper styling is a CONTAINER widget:
+
+Note However that container widget does not support the runtime performance optimisation given by CONST. Therefore, it should be moved to within the container as opposed to wrapping it around the container
+
+
+UNDERSTAND CLASSES
+
+DART is an OOP(Object Oriented Programming) language.
+Every value is an Object
+Objects are simply data structures in Memory.
+
+What are in these data structures?
+
+Data(Variables or Properties)  and Functions(Methods).
+
+Complex Object are created with the help of CLASSES.
+CLASSES are simply BluePrints for Objects.
+
+Objects simply separate data from logic 
+
+Note that there are objects such as TEXT , NUMBER, and then we have complex objects such as Gradient Config Objects, Widgets etc.
+
+CREATING CUSTOM WIDGETS (FUN FUN FUN!!!!!)
+-------------------------------------------------
+
+Here's an example of how to create a custom widget. Remember; Widgets are classes;
+
+class MyCustomWidget extends StatelessWidget
+{
+   const MyCustomWidget({super.key});
+   @override
+   Widget build(context)
+   {
+     return  // put your widget tree here
+	 ;
+   }
+
+}
+
+VARIABLES:
+
+Variables are simply, data containers.
+
+TYPE INFERENCE:
+
+var startAlignment = Alignment.topleft;
+var endAlignment = Alignment.center;
+
+var Alignment? startAlignment; //Question Mark to show that startAlignment can be either a null value or a value of type alignmet
+var Alignment? endAlignment;
+
+
+final startAlignment = Alignment.topleft; //final Sets values once - Data container will never change the values
+final endAlignment = Alignment.center;
+
+const startAlignment = Alignment.topleft; //const Sets values once - Data container will never change the values. However CONST also means that it is a COMPILE time function/value. NOT A runtime value
+const endAlignment = Alignment.center;
+
+const startAlignment = getAlignment();//Compile time function
+
+/* // With Flutter, you create user interfaces by combining "widgets"
+// You'll learn all about them (and much more) throughout this course!
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // Every custom widget must have a build() method
+  // It tells Flutter, which widgets make up your custom widget
+  // Again: You'll learn all about that throughout the course!
+  @override
+  Widget build(BuildContext context) {
+    // Below, a bunch of built-in widgets are used (provided by Flutter)
+    // They will be explained in the next sections
+    // In this course, you will, of course, not just use them a lot but
+    // also learn about many other widgets!
+    return MaterialApp(
+      title: 'Flutter First App',
+      theme: ThemeData(useMaterial3: true),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Welcome to Flutter'),
+        ),
+        body: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Text(
+                'Flutter - The Complete Guide \n By Instructor: Max \n Student: Miriam',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Learn Flutter step-by-step, from the ground up.',
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+} */
+
+Testing different options of gradientContainer class:
+
+import 'package:flutter/material.dart';
+import 'package:otela_version_two/styled_text.dart';
+
+class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key, required this.colors});
+  final List<Color> colors;
+  @override
+  Widget build(context) {
+    var linearGradient = LinearGradient(
+          colors: colors,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        );
+    return Container(
+      decoration:  BoxDecoration(
+        // color: Color.fromRGBO(17, 50, 147, 0.7),
+        gradient: linearGradient,
+      ),
+      child: const Center(
+        child: StyledText('Hellow World, whats up?'),
+      ),
+    );
+  }
+}
+// class GradientContainer extends StatelessWidget {
+//   const GradientContainer(this.color1, this.color2, {super.key});
+//   final Color color1;
+//   final Color color2;
+//   @override
+//   Widget build(context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: Color.fromRGBO(17, 50, 147, 0.7),
+//         gradient: LinearGradient(
+//           colors: [color1, color2],
+//           begin: Alignment.topLeft,
+//           end: Alignment.bottomRight,
+//         ),
+//       ),
+//       child: const Center(
+//         child: StyledText('Hellow World, whats up?'),
+//       ),
+//     );
+//   }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(ColorProperty('color2', color2));
+  }
+}
+
+------------------------TRY AGAIN :-(
+
+import 'package:flutter/material.dart';
+import 'package:otela_version_two/styled_text.dart';
+
+class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key, required this.colors});
+  final List<Color>
+      colors; //= <Color>[Colors.fromRGBO(206, 182, 118, 1.0),Colors.fromRGBO(17, 50, 147, 0.7)];
+  @override
+  Widget build(context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromRGBO(17, 50, 147, 0.7),
+        gradient: LinearGradient(
+          colors: colors,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: const Center(
+        child: StyledText('Hellow World, whats up?'),
+      ),
+    );
+  }
+}
+// class GradientContainer extends StatelessWidget {
+//   const GradientContainer(this.color1, this.color2, {super.key});
+//   final Color color1;
+//   final Color color2;
+//   @override
+//   Widget build(context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         color: Color.fromRGBO(17, 50, 147, 0.7),
+//         gradient: LinearGradient(
+//           colors: [color1, color2],
+//           begin: Alignment.topLeft,
+//           end: Alignment.bottomRight,
+//         ),
+//       ),
+//       child: const Center(
+//         child: StyledText('Hellow World, whats up?'),
+//       ),
+//     );
+//   }
+
